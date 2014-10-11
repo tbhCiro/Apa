@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1412800319 source:/home/anakin/Documents/Poli/APA/Lab00/lab0-2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
