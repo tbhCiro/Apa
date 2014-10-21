@@ -5,8 +5,8 @@
 // struttura dati
 struct point{
     float x, y, dist_0;
-} *punto;
-
+}// *punto;
+;
 // prototipi
 void distanza(float *X1, float *Y1, float *X2, float *Y2, float *dist);
 void SelectionSort(struct point punto[], int l, int r);
@@ -18,6 +18,7 @@ void distanza(float *X1, float *Y1, float *X2, float *Y2, float *dist){
 
 void SelectionSort(struct point punto[], int l, int r){
     int i, j, min;
+    struct point tmp; //tmp.x=0; tmp.y=0; tmp.dist_0=0;
     float temp, tempx, tempy;
     for (i=l; i<r; i++){
         min=i; // suppongo che l'elemento sia il minimo
@@ -34,6 +35,7 @@ void SelectionSort(struct point punto[], int l, int r){
 
 int main(int argc, char *argv[]){
     if (argc != 4) return 1; // controllo correttezza riga di comando
+    struct point *punto;
     float min, max, dist;
     FILE *f_in=NULL, *f_out=NULL;
     int num_punti=0, i, j, p1, p2, p3, p4;
@@ -72,5 +74,4 @@ int main(int argc, char *argv[]){
     }//for i
     free(punto);
     return 0;
-
 }//main
