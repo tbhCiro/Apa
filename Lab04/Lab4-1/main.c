@@ -6,6 +6,9 @@ typedef struct d{
     int colonna, valore;
 } n0; // elementi che non sono zero nella matrice sparsa
 
+int simmetrica_sparsa(int**, int, int);
+int simmetrica_compatta(n0**, int, int*);
+
 int main (int argc, char **argv){
   int **mat=NULL, x, i, flag=0, j, R, C, num=0, *cnt;
   FILE *f_in=NULL;
@@ -39,12 +42,20 @@ int main (int argc, char **argv){
       if (mat[i][j]!=0){
         vett[i][num].colonna=j;
         vett[i][num].valore=mat[i][j];
-        printf("%d -> |%d|%d|\n", i, vett[i][num].colonna, vett[i][num].valore);
+        //printf("%d -> |%d|%d|\n", i, vett[i][num].colonna, vett[i][num].valore);
         num++;
       }
     }
   }
-    // chiedo all'utente a quale valore vuole accedere.
+  // stampa matrice (totalmente inutile)
+  for (i=0; i<R; i++){
+    num=0;
+    printf("%d -> ", i);
+    for (j=0; j<cnt[i]; j++){
+      printf("|%d|%d| ", vett[i][num].colonna, vett[i][num].valore); num++;
+    }printf("\n");
+  }
+  // chiedo all'utente a quale valore vuole accedere.
   printf("\nA quale elemento vuoi accedere? (specificare i e j): ");
   scanf("%d %d", &i, &j);
   if (i>R || j>C){
@@ -59,16 +70,45 @@ int main (int argc, char **argv){
     }// entra nell'if se il valore è uno zero, quindi non è salvato nella matrice compatta
     if (flag==0) printf("in quella posizione c'è uno zero quindi non è salvato nella matrice compatta.\n");
     }flag=0;
-    // ricerca di simmetricità su entrambe la matrici
-    for (i=0; i<R && (flag==0); i++){
-      for(j=i+1; j<C && (flag==0); j++){
-        if (mat[i][j] != mat[j][i]) flag++;
-      }
-    }
-    if (flag){
+    // ricerca di simmetricità sulla matrice standard sparsa
+    if (simmetrica_sparsa(mat, R, C)){
       printf ("La matrice \"standard\" non è simmetrica.\n");
     }else{
       printf ("La matrice \"standard\" è simmetrica.\n");
     }
+    // ricerca di simmetricità sulla matrice compatta
+    if (simmetrica_compatta(vett, R, cnt)){
+      printf ("La matrice \"compatta\" non è simmetrica.\n");
+    }else{
+      printf ("La matrice \"compatta\" è simmetrica.\n");
+    }
+
     return 0;
-}
+}//main
+
+int simmetrica_sparsa(int **matrice, int rig, int col){
+  int i, j;
+  for (i=0; i<rig; i++){
+    for(j=i+1; j<col; j++){
+      if (matrice[i][j] != matrice[j][i]) return 1;
+    }
+  }
+  return 0;
+}//int simmetrica_sparsa
+
+int simmetrica_compatta(n0 **vett, int max, int *cnt){
+  int i, j;
+  for (i=0; i<max; i++){
+    for (j=0; j<cnt[i]; j++){
+      if (vett[i][j].colonna > max){
+        return 1; // uscirei dalla matrice
+      }else{
+        if (vett[i][j].valore != vett[vett[i][j].colonna][i].valore){
+          return 1;
+        }
+      }
+    }// for j
+  }//for i
+  printf("\n");
+  return 0;
+}//int simmetrica_compatta()
