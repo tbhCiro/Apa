@@ -1,0 +1,6 @@
+5
+RossoDenise		03/05/1990	F
+VerdiMario		04/05/1991	M
+MarroneGiovanni		01/12/1988	M
+NeroIvan		03/10/1994	M
+GialloEmanuela		07/01/1992	F
