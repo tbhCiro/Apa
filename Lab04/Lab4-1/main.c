@@ -82,7 +82,6 @@ int main (int argc, char **argv){
     }else{
       printf ("La matrice \"compatta\" è simmetrica.\n");
     }
-
     return 0;
 }//main
 
@@ -96,19 +95,19 @@ int simmetrica_sparsa(int **matrice, int rig, int col){
   return 0;
 }//int simmetrica_sparsa
 
-int simmetrica_compatta(n0 **vett, int max, int *cnt){
-  int i, j;
+int simmetrica_compatta(n0 **matrice, int max, int *cnt){
+  int i, j, x, tmp, count=0;
   for (i=0; i<max; i++){
     for (j=0; j<cnt[i]; j++){
-      if (vett[i][j].colonna > max){
-        return 1; // uscirei dalla matrice
-      }else{
-        if (vett[i][j].valore != vett[vett[i][j].colonna][i].valore){
-          return 1;
-        }
+      tmp=matrice[i][j].colonna;
+      for  (x=0; x<cnt[tmp]; x++){
+         if (matrice[tmp][i].colonna == i){
+            count++;
+         }
       }
     }// for j
   }//for i
-  printf("\n");
+  //printf("%d != %d\n", count, (max*max-2*max));
+  if (count != (max*max-2*max)) return 1;
   return 0;
 }//int simmetrica_compatta()
