@@ -16,7 +16,6 @@ int year(stud);
 int month(stud);
 int day(stud);
 
-
 int main(int argc, char **argv){
    if (argc != 2) return -1;
    int N, i;
@@ -44,11 +43,11 @@ int main(int argc, char **argv){
          fprintf(fboys, "%s %d/%d/%d\n", studenti[i].name, studenti[i].day, studenti[i].month, studenti[i].year);
       }
    }//i
-   printf("\n");
+/*   printf("\n");
    for (i=0; i<N; i++){
    //fscanf(fp, "%s %d/%d/%d %c", tmp, &studenti[i].day, &studenti[i].month, &studenti[i].year, &studenti[i].sex);
       printf("%s -> %d/%d/%d -> %c\n", studenti[i].name, studenti[i].day, studenti[i].month, studenti[i].year, studenti[i].sex );
-   }//i
+   }//i*/
 
    free(studenti);
    fclose(fp); fclose(fgirls); fclose(fboys);
@@ -64,9 +63,9 @@ char *scrivinome(char *old){
 }// scrivinome
 
 int diffnascita(stud a, stud b){
-   if (year(a)!=year(b)) return (year(b)-year(a));
-   if (month(a)!=month(b)) return (month(b)-month(a));
-   if (day(a)!=day(b)) return (day(b)-day(a));
+   if (year(a)!=year(b)) return (year(a)-year(b));
+   if (month(a)!=month(b)) return (month(a)-month(b));
+   if (day(a)!=day(b)) return (day(a)-day(b));
    return 0;
 }//int diffnascita()
 
@@ -76,8 +75,10 @@ void ordina(stud* vett, int l , int r){
 	for(i = l; i < r; i++) {
 		min = i;
 	for (j = i+1; j <= r; j++)
-		if (diffnascita(vett[min], vett[j]))
+		if ((diffnascita(vett[j], vett[min])) < 0){
+			//printf("<< %d < %d >>\n", year(vett[j]), year(vett[min]));
 			min = j;
+      }
 	temp = vett[i];
 	vett[i] = vett[min];
 	vett[min] = temp;
