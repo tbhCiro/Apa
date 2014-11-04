@@ -1,3 +1,5 @@
+/* Grazie a tbhCiro */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,10 +30,6 @@ int main(int argc, char **argv) {
 	int N=atoi(argv[1]), *vett;
 	vett=malloc(N*sizeof(int));
 	catalan(N, vett);
-	
-	int i;
-	for (i=0; i<N; i++) printf("%d \n", vett[i] );
-
 	printf ("Il Catalan di %d è: %d.\n", N, vett[N-1]);
 	return 0;
 }//main
