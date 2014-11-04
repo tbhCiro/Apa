@@ -30,6 +30,6 @@ int main(int argc, char **argv) {
 	int N=atoi(argv[1]), *vett;
 	vett=malloc(N*sizeof(int));
 	catalan(N, vett);
-	printf ("Il Catalan di %d è: %d.\n", N, vett[N-1]);
+	printf ("Il Catalan di %d è: %d.\n", N, vett[N]);
 	return 0;
 }//main
