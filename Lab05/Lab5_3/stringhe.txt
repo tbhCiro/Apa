@@ -1,0 +1,13 @@
+12
+ciao
+come
+va?
+questo
+file
+e'
+solo
+un
+piccolo
+esempio
+di
+ordinazione
