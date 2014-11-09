@@ -21,7 +21,7 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include"priorita.h"
-
+//#include"comune.h"
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  usage_priorita

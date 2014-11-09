@@ -23,27 +23,7 @@
 #include "pila.h"
 #include "coda.h"
 #include "priorita.h"
-
-#define MAX 35
-/*-----------------------------------------------------------------------------
- *  Struttura dati
- *-----------------------------------------------------------------------------*/
-typedef struct studente *link;
-
-typedef struct {	// sotto struttura carriera
-	int crediti;
-	float media;
-}carriera;
-
-struct {				// nodo della lista
-	char nome[MAX];
-	char cognome[MAX];
-	char matricola[MAX];
-	carriera voti;
-	link prossimo;
-}studente;
-
-link head=NULL;	// testa della lista;
+#include "comune.h"
 
 /*-----------------------------------------------------------------------------
  *  Prototipi
