@@ -68,7 +68,7 @@ int main ( int argc, char **argv ){
 			scanf("%s", stringa);
 			head=add_node(stringa);
 		}else	if ( comando[0] == 'S'  ){
-			printf("Stampo il primo della lista\n");
+			print_first(head);
 		}else	if ( comando[0] == 'T'  ){
 			print_all(head);
 		}else	if ( comando[0] == 'E'  ){
@@ -84,7 +84,7 @@ int main ( int argc, char **argv ){
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  usage
- *  Description:  Simply printf the program "syntax" 
+ *  Description:  Simply print the program "syntax" 
  * =====================================================================================
  */
 void usage (int a){
@@ -95,17 +95,17 @@ void usage (int a){
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  add_node
- *  Description:  aggiunge nodo alla lista, controlla che la lista non sia vuota
+ *  Description:  aggiunge nodo in coda alla lista, controlla che la lista non sia vuota
  *  					in tal caso la inizializza.
  * =====================================================================================
  */
 link add_node (char *str){
 	link k, tmp=malloc(sizeof *tmp);
-	tmp->next=NULL;
-	strcpy(tmp->cod,str);
+	tmp->next=NULL;		 // creo il nodo che mi serve,
+	strcpy(tmp->cod,str); // se head==null è il nodo è head	
 	if ( head == NULL )	{
 		head=tmp;
-	}else{
+	}else{	// se head != null il nodo (tmp, già allocato e con ->next a NULL) viene accodato
 		k=malloc(sizeof *k);
 		// cerco il nodo finale a al suo ->next pianto tmp
 		for (k=head; k->next!=NULL; k=k->next);
@@ -123,11 +123,9 @@ link add_node (char *str){
  */
 void print_all (link t){
 	int i=1;
-	 
 	for (t=head ; t!=NULL ; t=t->next){
 		printf (">> <printing function> >> %2d) %s\n", i++, t->cod);
-		//t=t->next;
-	}	
+	}
 	return;
 }		/* -----  end of function print_all  ----- */
 
@@ -137,7 +135,14 @@ void print_all (link t){
  *  Description:  print & delete first entry in list
  * =====================================================================================
  */
-void print_first ( ){
+void print_first (link t){
+	if (head==NULL){
+		printf(">> <first> >> !! Attenzione, la lista è vuota !!\n");
+	}else{
+		printf(">> <first> >> %s\n", t->cod);
+		head=t->next;
+		free(t);
+	}
 	return;
 }		/* -----  end of function print_first  ----- */
 
