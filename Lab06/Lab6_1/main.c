@@ -21,6 +21,8 @@
 #include <ctype.h>
 #include "list.h"
 #include "pila.h"
+#include "coda.h"
+#include "priorita.h"
 
 #define MAX 35
 /*-----------------------------------------------------------------------------
@@ -83,9 +85,15 @@ void menu ( ){
 			usage();
 		} else if ( cmd == 3 ){
 			// coda
+			coda();
+			usage();
 		} else if ( cmd == 4 ){
 			// coda a priorità
-		} else if ( cmd == 5 )
+			priorita();
+			usage();
+		} else if ( cmd == 5 ){
+			usage();
+		} else if ( cmd == 6 )
 			continua=0;
 		cmd=0;
 	}

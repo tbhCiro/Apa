@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  pila.c
+ *       Filename:  priorita.c
  *
- *    Description:  source for pila.h lab6
+ *    Description:  source for priorita.h lab 6
  *
  *        Version:  1.0
- *        Created:  11/09/2014 07:06:09 PM
+ *        Created:  11/09/2014 07:52:51 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -20,57 +20,58 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
-#include"pila.h"
+#include"priorita.h"
 
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  usage_pila
- *  Description:  stampa la "sintassi" utile al file pila.c
+ *         Name:  usage_priorita
+ *  Description:  stampa la "sintassi" utile al file priorita.c
  * =====================================================================================
  */
-void usage_pila (){
+void usage_priorita (){
 	int i=0;
-	printf(">> <Pila> >> %d: Cardinalità della pila;\n", ++i);
-	printf(">> <Pila> >> %d: Inserimento all'inizio;\n", ++i);
-	printf(">> <Pila> >> %d: Estrazione;\n", ++i);
-	printf(">> <Pila> >> %d: Stampa intera pila;\n", ++i);
-	printf(">> <Pila> >> %d: Distruzione della pila;\n", ++i);
-	printf(">> <Pila> >> %d: Aiuto;\n", ++i);
-	printf(">> <Pila> >> %d: Uscita;\n", ++i);
+	printf(">> <Priorita> >> %d: Cardinalità della coda a priorità;\n", ++i);
+	printf(">> <Priorita> >> %d: Inserimento in base alla media;\n", ++i);
+	printf(">> <Priorita> >> %d: Estrazione elemento a massima usage_priorita;\n", ++i);
+	printf(">> <Priorita> >> %d: Stampa intera coda;\n", ++i);
+	printf(">> <Priorita> >> %d: Distruzione della coda;\n", ++i);
+	printf(">> <Priorita> >> %d: Aiuto;\n", ++i);
+	printf(">> <Priorita> >> %d: Uscita;\n", ++i);
 	return;
-}		/* -----  end of function usage_pila  ----- */
+}		/* -----  end of function usage_priorità  ----- */
 
 
 
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  pila
- *  Description:  "Main" di pila.c
+ *  Description:  "Main" di priorita.c
  * =====================================================================================
  */
-void pila (){
+void priorita (){
 	int cmd=0, continua=1;	
-	usage_pila();
+	usage_priorita();
 	while (continua){
-		printf(">> <Pila> >> ");
+		printf(">> <Priorita> >> ");
 		scanf("%d", &cmd);
 
 		if ( cmd == 1 ){
 			printf ("Card\n");
 		}else if ( cmd == 2 ){
-			printf ("ins all'inizio\n");
+			printf ("inserimento in base alla media\n");
 		}else if ( cmd == 3 ){
-			printf ("estrai\n");
+			printf ("estrai card maggiore\n");
 		}else if ( cmd == 4 ){
-			printf ("stampa pila\n");
+			printf ("stampa coda a priorità\n");
 		}else if ( cmd == 5 ){
-			printf ("distruggi pila\n");
+			printf ("distruggi coda\n");
 		}else if ( cmd == 6 ){
-			usage_pila();
+			usage_priorita();
 		}else if ( cmd == 7 ){
 			printf("esci\n");
 			continua=0;
 		}
 	}
+
 	return;
-}		/* -----  end of function pila  ----- */
+}		/* -----  end of function priorità  ----- */

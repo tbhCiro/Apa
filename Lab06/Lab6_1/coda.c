@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  pila.c
+ *       Filename:  coda.c
  *
- *    Description:  source for pila.h lab6
+ *    Description:  source code for coda.h lab6
  *
  *        Version:  1.0
- *        Created:  11/09/2014 07:06:09 PM
+ *        Created:  11/09/2014 07:41:42 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -20,57 +20,56 @@
 #include<string.h>
 #include<ctype.h>
 #include<stdlib.h>
-#include"pila.h"
+#include"coda.h"
 
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  usage_pila
- *  Description:  stampa la "sintassi" utile al file pila.c
+ *         Name:  usage_coda
+ *  Description:  
  * =====================================================================================
  */
-void usage_pila (){
-	int i=0;
-	printf(">> <Pila> >> %d: Cardinalità della pila;\n", ++i);
-	printf(">> <Pila> >> %d: Inserimento all'inizio;\n", ++i);
-	printf(">> <Pila> >> %d: Estrazione;\n", ++i);
-	printf(">> <Pila> >> %d: Stampa intera pila;\n", ++i);
-	printf(">> <Pila> >> %d: Distruzione della pila;\n", ++i);
-	printf(">> <Pila> >> %d: Aiuto;\n", ++i);
-	printf(">> <Pila> >> %d: Uscita;\n", ++i);
+void usage_coda (){
+	int i;
+	printf(">> <Coda> >> %d: Cardinalità della coda;\n", ++i);
+	printf(">> <Coda> >> %d: Inserimento alla fine;\n", ++i);
+	printf(">> <Coda> >> %d: Estrazione elemento di testa;\n", ++i);
+	printf(">> <Coda> >> %d: Stampa intera coda;\n", ++i);
+	printf(">> <Coda> >> %d: Distruzione della coda;\n", ++i);
+	printf(">> <Coda> >> %d: Aiuto;\n", ++i);
+	printf(">> <Coda> >> %d: Uscita;\n", ++i);	
 	return;
-}		/* -----  end of function usage_pila  ----- */
-
+}		/* -----  end of function usage_coda  ----- */
 
 
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  pila
- *  Description:  "Main" di pila.c
+ *         Name:  coda
+ *  Description:  in "main" di coda.c
  * =====================================================================================
  */
-void pila (){
+void coda (){
 	int cmd=0, continua=1;	
-	usage_pila();
+	usage_coda();
 	while (continua){
-		printf(">> <Pila> >> ");
+		printf(">> <Coda> >> ");
 		scanf("%d", &cmd);
 
 		if ( cmd == 1 ){
 			printf ("Card\n");
 		}else if ( cmd == 2 ){
-			printf ("ins all'inizio\n");
+			printf ("ins alla fine\n");
 		}else if ( cmd == 3 ){
-			printf ("estrai\n");
+			printf ("estrai dalla testa\n");
 		}else if ( cmd == 4 ){
-			printf ("stampa pila\n");
+			printf ("stampa coda\n");
 		}else if ( cmd == 5 ){
-			printf ("distruggi pila\n");
+			printf ("distruggi coda\n");
 		}else if ( cmd == 6 ){
-			usage_pila();
+			usage_coda();
 		}else if ( cmd == 7 ){
 			printf("esci\n");
 			continua=0;
 		}
 	}
 	return;
-}		/* -----  end of function pila  ----- */
+}		/* -----  end of function coda  ----- */
